@@ -39,7 +39,7 @@ for iid in idList:
         dailyKeys.sort()
         lastKey = len(dailyKeys) - 1
         recentPrice = dailyData[dailyKeys[lastKey]]
-#        print "iid: ", iid, " with current price: ", recentPrice, "\n"
+        print "iid: ", iid, " with current price: ", recentPrice, "\n"
         time.sleep(1)
     except:
         print "unable to connect to website...\n"
