@@ -1,20 +1,115 @@
-﻿
-36390 - Divine Charge
-561 - Nature Rune
-261 - Clean Avantoe
-37953 - Clean bloodweed
-265 - Clean cadantine
-267 - Clean dwarf weed
-21624 - Clean fellstalk
-249 - Clean guam
-255 - Clean harralander
-259 - Clean irit
-263 - Clean kwuarm
-2481 - Clean lantadyme
-251 - Clean marrentill
-257 - Clean ranarr
-3000 - Clean snapdragon
-12172 - Clean spirit weed
-253 - Clean tarromin
-2998 - Clean toadflax
-269 - Clean torstol
+29313 - Pale Energy | divination
+29314 - Flickering Energy | divination
+29315 - Bright Energy | divination
+29316 - Glowing Energy | divination
+29317 - Sparkling Energy | divination
+29318 - Gleaming Energy | divination
+29319 - Vibrant Energy | divination
+29320 - Lustrous Energy | divination
+29321 - Brilliant Energy | divination
+29322 - Radiant Energy | divination
+29323 - Luminous Energy | divination
+29324 - Incandescent Energy | divination
+36390 - Divine Charge | divination
+41073 - Divine Charge (empty) | divination
+
+
+554 - Fire Rune | runes
+555 - Water Rune | runes
+556 - Air Rune | runes
+557 - Earth Rune | runes
+558 - Mind Rune | runes
+559 - Body Rune | runes
+560 - Death Rune | runes
+561 - Nature Rune | runes
+562 - Chaos Rune | runes
+563 - Law Rune | runes
+564 - Cosmic Rune | runes
+565 - Blood Rune | runes
+566 - Soul Rune | runes
+4694 - Steam Rune | runes
+4695 - Mist Rune | runes
+4696 - Dust Rune | runes
+4697 - Smoke Rune | runes
+4698 - Mud Rune | runes
+4699 - Lava Rune | runes
+9075 - Astral Rune | runes
+21773 - Armadyl Rune | runes
+
+261 - Clean Avantoe | clean herbs
+37953 - Clean bloodweed | clean herbs
+265 - Clean cadantine | clean herbs
+267 - Clean dwarf weed | clean herbs
+21624 - Clean fellstalk | clean herbs
+249 - Clean guam | clean herbs
+255 - Clean harralander | clean herbs
+259 - Clean irit | clean herbs
+263 - Clean kwuarm | clean herbs
+2481 - Clean lantadyme | clean herbs
+251 - Clean marrentill | clean herbs
+257 - Clean ranarr | clean herbs
+3000 - Clean snapdragon | clean herbs
+12172 - Clean spirit weed | clean herbs
+253 - Clean tarromin | clean herbs
+2998 - Clean toadflax | clean herbs
+269 - Clean torstol | clean herbs
+
+91 - Guam potion (unf) | unf potions
+95 - Tarromin potion (unf) | unf potions
+297 - Marrentill potion (unf) | unf potions
+97 - Harralander potion (unf) | unf potions
+99 - Ranarr potion (unf) | unf potions
+3002 - Toadflax potion (unf) | unf potions
+12181 - Spirit weed potion (unf) | unf potions
+14856 - Wergali potion (unf) | unf potions
+101 - Irit potion (unf) | unf potions
+103 - Avantoe potion (unf) | unf potions
+105 - Kwuarm potion (unf) | unf potions
+37973 - Bloodweed potion (unf) | unf potions
+3004 - Snapdragon potion (unf) | unf potions
+107 - Cadantine potion (unf) | unf potions
+2483 - Lantadyme potion (unf) | unf potions
+109 - Dwarf weed potion (unf) | unf potions
+111 - Torstol potion (unf) | unf potions
+21628 - Fellstalk potion (unf) | unf potions
+
+1511 - Logs | logs
+960 - Plank | logs
+1521 - Oak logs | logs
+8778 - Oak plank | logs
+6333 - Teak logs | logs
+8780 - Teak planks | logs
+6332 - Mahogany logs | logs
+8782 - Mahogany plank | logs
+
+
+1753 - Green dragonhide | leather
+1745 - Green dragon leather | leather
+1751 - Blue dragonhide | leather
+2505 - Blue dragon leather | leather
+1749 - Red dragonhide | leather
+2507 - Red dragon leather | leather
+1747 - Black dragonhide | leather
+2509 - Black dragon leather | leather
+24372-  Royal dragonhide | leather
+24374 - Royal dragon leather | leather
+
+
+2349 - Bronze Bar | metal
+2351 - Iron Bar | metal
+2353 - Steel Bar | metal
+2355 - Silver Bar | metal
+2357 - Gold Bar | metal
+2359 - Mithril Bar | metal
+2361 - Adamant Bar | metal
+2363 - Rune Bar | metal
+
+436 - Copper Ore | ore
+438 - Tin Ore | ore
+440 - Iron Ore | ore
+442 - Silver Ore | ore
+444 - Gold Ore | ore
+447 - Mithril Ore | ore
+449 - Adamantite Ore | ore
+451 - Runite Ore | ore
+453 - Coal | ore

@@ -1,7 +1,13 @@
+# readFile.py
+    # reads a text file line by line of the form "itemID - itemName | itemCategory"
+    # and splits each line with delims - and |
+    # and uses these values to initialize MariaDB tables
 
+#imports
+    #MySQLdb - python interface for MariaDB
 import MySQLdb
 
-myDB = "grandexchange"
+myDB = "grandexchange"      #name of database
 
 try:
     conn = MySQLdb.connect(host="localhost",
@@ -21,29 +27,44 @@ except:
     print "could not open file " + textFileName + "\n"
 
 
-for line in file:
-    lineS = line.strip()
-    lineParts = lineS.split(" - ")
-    if lineParts[0] == '\xef\xbb\xbf':              #first line was displaying UTF-8 encoded BOM info
-        continue                                        #..so if we obtain BOM info, continue loop
-    print "lineS: ", lineS
-    print "lineParts: ", lineParts
+for line in file:                           #operate on the file line by line
+    try:    #attempt to operate on the line
+        lineS = line.strip()                #get rid of any newline characters
+        if lineS == "":         #empty line with no data
+            continue
 
-    itemID = lineParts[0]
-    itemName = lineParts[1:]
-    itemName = itemName[0]
-    print "item ID: ", itemID, "item name: ", itemName
+        lineParts = lineS.split(" - ")      #split the line into [id] and [name | category] bits
+        if lineParts[0] == '\xef\xbb\xbf':              #first line was displaying UTF-8 encoded BOM info
+            continue                                        #..so if we obtain BOM info, continue loop
 
-    try:
-        curs.execute("""INSERT INTO itemNames (iid, itemName) VALUES (%s, %s)""", (itemID, itemName))
-        conn.commit()
-        print "committed to database...\n"
+        #print "lineS: ", lineS
+        #print "lineParts: ", lineParts
+        itemID = lineParts[0]
+        lineParts = lineParts[1].split(" | ")   #split [name | category] bit
+        itemName = lineParts[0]
+        itemCategory = lineParts[1]
+#        print "item ID: ", itemID, "item name: ", itemName, "item category: ", itemCategory
 
-    except:
-        conn.rollback()
-        print "rolling back database...\n"
+        try:
+            curs.execute("""INSERT INTO itemNames (iid, itemName) VALUES (%s, %s)""", (itemID, itemName))
+            conn.commit()
+            #print "committed to database...\n"
+        except:
+            conn.rollback()
+            print "rolling back database...\n"
+
+        try:
+            curs.execute("""INSERT INTO itemCategorys (iid, itemCategory) VALUES (%s, %s)""", (itemID, itemCategory))
+            conn.commit()
+            #print "committed to database...\n"
+        except:
+            conn.rollback()
+            print "rolling back database...\n"
+
+    except:     #unable to operate on the current line
+        pass
 
 
-
+print "got to end successfully!"
 conn.close()
 file.close()
