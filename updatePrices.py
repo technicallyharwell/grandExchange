@@ -1,5 +1,6 @@
 import MySQLdb
 import urllib, json
+import time
 from datetime import datetime
 
 def selectRunedate(cursor):     #obtain the most recent runedate that we have prices for
@@ -21,7 +22,7 @@ def fetchRecentRunedate():      #obtain the last runedate jagex updated grand ex
 
 def selectItemIDList(cursor):   #generate a list of iid to request new pricing data with
     try:                                                    #get the item ID of all items
-        cursor.execute("""SELECT iid FROM itemNames""")
+        cursor.execute("""SELECT DISTINCT iid FROM itemNames""")
         data = curs.fetchall()
         idList = []                                         #store each item ID into idList[]
         for value in data:
@@ -54,24 +55,25 @@ def requestNewPrice(iid):       #obtain an items new price from jagex
 def updateItemPrices(idList, rdate, curs, conn):
     for iid in idList:
     #    print iid
-        try:
-            updatedPrice = requestNewPrice(iid)
-            print "updt price: ", updatedPrice, "\n"
-            if updatedPrice != 0:   #valid price obtained
-                try:
-                    curs.execute("""INSERT INTO itemPrices (iid, itemPrice, runedate) VALUES (%s, %s, %s)""", (iid, updatedPrice, rdate))
-                    conn.commit()
-                    print "insert success, time for sleep..\n"
-                except:
-                    print "connection rolling back..."
-                    conn.rollback()
+        updatedPrice = requestNewPrice(iid)
+        print "updt price: ", updatedPrice, "\n"
+        if updatedPrice != 0:   #valid price obtained
+            try:
+                curs.execute("""INSERT INTO itemPrices (iid, itemPrice, runedate) VALUES (%s, %s, %s)""", (iid, updatedPrice, rdate))
+                conn.commit()
+                print "insert success, time for sleep..\n"
+
+            except:
+                print "connection rolling back..."
+                conn.rollback()
+
+        time.sleep(1)
 
 
-            time.sleep(1)
-
-        except:
-            print "unable to connect to website...\n"
-            time.sleep(5)
+        #except:
+            #print "unable to connect to website for iid: ", iid, "\n"
+            #pass
+            #time.sleep(5)
 
     return
 
@@ -107,9 +109,14 @@ if __name__ == "__main__":
                 print "itemID: ", iid
         #    print "got iidl"
             updateItemPrices(iidList, jagRunedate, curs, conn)  #try to update every item
+            print "finished updating item prices..."
             updateRunedate(jagRunedate, curs, conn)         #finally, update our last completed update to the current runedate
+            print "updated newest runedate, time to quit.."
+
+        else:
+            print "runedate matches...database up to date!"
 
     except:
-        print "could not connect to database " + myDB + "\n"
+        print "could not connect to database: " + myDB + "\n"
 
     conn.close()
